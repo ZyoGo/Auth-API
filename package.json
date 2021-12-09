@@ -8,5 +8,20 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "@hapi/hapi": "^20.2.1",
+    "@hapi/jwt": "^2.1.0",
+    "bcrypt": "^5.0.1",
+    "dotenv": "^10.0.0",
+    "nanoid": "^3.1.30",
+    "pg": "^8.7.1"
+  },
+  "devDependencies": {
+    "@types/jest": "^27.0.3",
+    "eslint": "^8.4.1",
+    "jest": "^27.4.3",
+    "node-pg-migrate": "^6.0.0",
+    "nodemon": "^2.0.15"
+  }
 }
