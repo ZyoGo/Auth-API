@@ -6,8 +6,6 @@ class ClientError extends Error {
       throw new Error('cannot instantiate abstract class');
     }
 
-    console.log(this.constructor.name);
-
     this.statusCode = statusCode;
     this.name = 'ClientError';
   }

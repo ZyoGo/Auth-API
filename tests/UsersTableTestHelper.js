@@ -1,6 +1,6 @@
 /* istanbul ignore file */
 
-const pool = require('../src/Infrastructure/Database/Pool');
+const pool = require('../src/Infrastructures/database/postgres/pool');
 
 const UsersTableTestHelper = {
   async addUser({ id = 'user-123', username = 'dicoding', password = 'secret', fullname = 'Dicoding Indonesia' }) {
@@ -19,8 +19,7 @@ const UsersTableTestHelper = {
     };
 
     const result = await pool.query(query);
-    console.log(result.rows);
-    console.log(result.rows[0]);
+
     return result.rows;
   },
 
