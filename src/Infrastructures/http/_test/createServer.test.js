@@ -4,12 +4,12 @@ const container = require('../../container');
 const createServer = require('../createServer');
 
 describe('HTPP server', () => {
-  afterEach(async () => {
-    await UsersTableTestHelper.cleanTable();
-  });
-
   afterAll(async () => {
     await pool.end();
+  });
+
+  afterEach(async () => {
+    await UsersTableTestHelper.cleanTable();
   });
 
   describe('when POST /users', () => {
