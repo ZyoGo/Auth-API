@@ -2,31 +2,29 @@
 
 const pool = require('../src/Infrastructure/Database/Pool');
 
-const UsersTableTestHelper = {
-  async addUser({ id = 'user-123', username = 'dicoding', password = 'secret', fullname = 'Dicoding Indonesia' }) {
+const AuthenticationsTableTestHelper = {
+  async addToken(token) {
     const query = {
-      text: 'INSERT INTO users VALUES($1, $2, $3, $4)',
-      values: [id, username, password, fullname],
+      text: 'INSERT INTO authentications VALUES($1)',
+      values: [token],
     };
 
     await pool.query(query);
   },
 
-  async findUsersById(id) {
+  async findToken(token) {
     const query = {
-      text: 'SELECT * FROM users WHERE id = $1',
-      values: [id],
+      text: 'SELECT * FROM authentications WHERE token = $1',
+      values: [token],
     };
 
     const result = await pool.query(query);
-    console.log(result.rows);
-    console.log(result.rows[0]);
     return result.rows;
   },
 
   async cleanTable() {
-    await pool.query('TRUNCATE TABLE users');
+    await pool.query('TRUNCATE TABLE authentications');
   },
 };
 
-module.exports = UsersTableTestHelper;
+module.exports = AuthenticationsTableTestHelper;
