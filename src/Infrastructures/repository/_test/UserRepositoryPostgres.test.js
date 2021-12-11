@@ -66,7 +66,6 @@ describe('UserRepositoryPostgres', () => {
 
       // Action
       const registeredUser = await userRepositoryPostgres.addUser(registerUser);
-      console.log(registeredUser);
 
       // Assert
       expect(registeredUser).toStrictEqual(
